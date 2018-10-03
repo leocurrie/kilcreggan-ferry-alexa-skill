@@ -12,5 +12,4 @@ phases:
 artifacts:
   files:
     - lambda/custom/kilcreggan-ferry-alexa-skill.zip
-    - name
   discard-paths: yes

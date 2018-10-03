@@ -1,0 +1,209 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the ferry timetable",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetFerryTimeIntent",
+                    "slots": [
+                        {
+                            "name": "portName",
+                            "type": "PORT_NAMES"
+                        },
+                        {
+                            "name": "toOrFrom",
+                            "type": "TO_OR_FROM"
+                        }
+                    ],
+                    "samples": [
+                        "when I can get a ferry",
+                        "when I can get a ferry {toOrFrom} {portName}",
+                        "when can I get a ferry {toOrFrom} {portName}",
+                        "when does the next ferry {toOrFrom} {portName} leave",
+                        "when's the next ferry {toOrFrom} {portName}",
+                        "when's the next ferry",
+                        "when is the next ferry",
+                        "when does the ferry leave",
+                        "when is the next ferry {toOrFrom} {portName}",
+                        "when does the ferry {toOrFrom} {portName}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "DestinationIntent",
+                    "slots": [
+                        {
+                            "name": "portName",
+                            "type": "PORT_NAMES",
+                            "samples": [
+                                "{portName}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "sailing to {portName}",
+                        "going to {portName}",
+                        "for {portName}",
+                        "{portName}",
+                        "I'm going to {portName}",
+                        "I want to sail to {portName}",
+                        "I want to go to {portName}",
+                        "to {portName}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "PORT_NAMES",
+                    "values": [
+                        {
+                            "id": "gourock",
+                            "name": {
+                                "value": "gourock",
+                                "synonyms": [
+                                    "goor ock",
+                                    "gooruck",
+                                    "guruck"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "kilcreggan",
+                            "name": {
+                                "value": "kilcreggan",
+                                "synonyms": [
+                                    "kilgroggins",
+                                    "culcreggin",
+                                    "kilcreggin"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "TO_OR_FROM",
+                    "values": [
+                        {
+                            "id": "from",
+                            "name": {
+                                "value": "from",
+                                "synonyms": [
+                                    "departing from",
+                                    "leaving from",
+                                    "departing",
+                                    "sailing from"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "to",
+                            "name": {
+                                "value": "to",
+                                "synonyms": [
+                                    "for",
+                                    "arriving to",
+                                    "arriving at",
+                                    "sailing to",
+                                    "arriving"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetFerryTimeIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "portName",
+                            "type": "PORT_NAMES",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "toOrFrom",
+                            "type": "TO_OR_FROM",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "DestinationIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "portName",
+                            "type": "PORT_NAMES",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1329837695216.890706068831"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.153648801202.701015196223",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "say to gourock or to kilcreggan"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.153648801202.727097482098",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to travel to Kilcreggan, or to Gourock?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to sail to Kilcreggan or to Gourock?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1329837695216.890706068831",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "say gourock or kilcreggan"
+                    }
+                ]
+            }
+        ]
+    }
+}
